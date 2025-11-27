@@ -32,7 +32,7 @@ const Login = () => {
 
       toast.success('Loggedin successfully')
 
-      navigate('/')
+      navigate('/dashboard')
 
     } catch (error: any) {
       return toast.error(error)
@@ -44,7 +44,7 @@ const Login = () => {
       await dispatch(login(guest)).unwrap()
 
       toast.success('Welcome!!')
-      navigate('/')
+      navigate('/dashboard')
 
     } catch (error: any) {
       return toast.error(error)

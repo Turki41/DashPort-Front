@@ -1,13 +1,12 @@
 import { useState } from "react"
 import Input from "../../components/Input"
 import AuthLayout from "../../components/layouts/AuthLayout"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { useAppDispatch } from "../../app/hooks"
 import { signup } from "../../features/auth/authSlice"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
-  const { loading } = useAppSelector(state => state.auth)
   const dispatch = useAppDispatch()
 
   const [user, setUser] = useState({ name: '', email: '', password: '', })

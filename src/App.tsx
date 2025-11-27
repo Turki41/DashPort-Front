@@ -2,7 +2,6 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import { useAppDispatch } from "./app/hooks";
-import PublicRoute from "./routes/PublicRoute";
 import { useEffect } from "react";
 import { checkAuth } from "./features/auth/authSlice";
 import AdminOnly from "./routes/AdminOnly";
@@ -32,10 +31,8 @@ export default function App() {
 
       <Routes>
 
-        <Route path="/login" element={
-          <PublicRoute>
+        <Route path="/" element={
             <Login />
-          </PublicRoute>
         } />
 
         <Route path="/signup" element={

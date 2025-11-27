@@ -7,12 +7,12 @@ interface PublicRouteProps {
 }
 
 const PrivateRoute = ({ children }: PublicRouteProps) => {
-    const { user, isCheckingAuth } = useAppSelector(state => state.auth)
+    const { user, isCheckingAuth, loading } = useAppSelector(state => state.auth)
 
     if (children && isCheckingAuth) return (<div className="w-screen h-screen flex items-center justify-center"><LoaderCircle className="animate-spin" /></div>)
 
-    if (!user && !isCheckingAuth) {
-        return <Navigate to="/login" replace />
+    if (!user && !isCheckingAuth && !loading) {
+        return <Navigate to="/" replace />
     }
 
     return <>{children}<Outlet /></>

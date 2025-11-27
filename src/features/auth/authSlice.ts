@@ -30,8 +30,8 @@ export const authSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(login.pending, (state) => { state.loading = true })
-            .addCase(login.fulfilled, (state, action) => { state.loading = false; state.user = action.payload })
-            .addCase(login.rejected, (state) => { state.loading = false })
+            .addCase(login.fulfilled, (state, action) => { state.loading = false; state.user = action.payload; state.isCheckingAuth = false })
+            .addCase(login.rejected, (state) => { state.loading = false; state.isCheckingAuth = false })
             .addCase(signup.pending, (state) => { state.loading = true })
             .addCase(signup.fulfilled, (state, action) => { state.loading = false; state.user = action.payload })
             .addCase(signup.rejected, (state) => { state.loading = false })
